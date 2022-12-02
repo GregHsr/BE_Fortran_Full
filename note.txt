@@ -1,0 +1,24 @@
+- fonction heavyside  OK
+- calcul concentration
+    - subroutine t -> t+dt OK
+    - function C_init
+- function maillage  OK
+- module données  OK
+- impression des données dans un fichier (2 colonnes)
+
+liste des données:
+Longueur L entier
+Temps t entier
+Position de zone xd xf entiers
+Diffusivité massique D entier
+Concentration intiale C0 réel
+Concentration initiale C_init tableau réels
+Concentration C(x,t) tableau réel
+Pas position Delta_x réel (pas appelé)
+Pas temps Delat_t réel
+Nombre de point N_x entier
+Nombre de point temps N_t entier
+Liste des positions L_x tableau réels
+Nombre de Fourier R réel
+Pi pi réel
+
