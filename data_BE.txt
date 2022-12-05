@@ -1,13 +1,13 @@
 # Physical parameters
 
  1000. ! L  : length of the domain (m)
- 1. ! D  : diffusivity (m^2/s)
- 1. ! C0 : initial concentration in the domain 
- 1000.  ! tf : final time (s)
+ 5. ! D  : diffusivity (m^2/s)
+ 10. ! C0 : initial concentration in the domain 
+ 100000.  ! tf : final time (s)
  0  ! xd : beginning of the area
- 0 ! xf : end of the area
+ -1 ! xf : end of the area
  
  # Numerical parameters 
 
- 100 ! N_x : number of cells in x-direction
- 100 ! N_t : number of point in time
+ 6 ! N_x : number of cells in x-direction
+ 20 ! N_t : number of point in time

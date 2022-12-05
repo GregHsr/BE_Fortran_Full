@@ -6,7 +6,7 @@ import numpy as np
 import os
 
 # CHAMP A MODIFIER EN FONCTION DU NOMBRE D'ELEMENTS DES TABLEAUX INDIVIDUELS
-nb_elements = 30
+nb_elements = 6
 
 # creation d'un dossier qui contiendra les images generees
 os.system("mkdir -p img/")
@@ -15,6 +15,7 @@ x = np.zeros(nb_elements)
 y = np.zeros(nb_elements)
 line_count = 0
 j  = 0
+color=['red','blue']
 with open("res.csv", "r") as my_file:
   for line in my_file:
     str = line.split()
@@ -26,13 +27,14 @@ with open("res.csv", "r") as my_file:
       j += 1
       plt.title("Evolution")
       plt.xlim(0.,1000.)
-      plt.ylim(0.,1.)
+      plt.ylim(0.,10.)
       plt.xlabel('x (m)',fontsize=16)
       plt.ylabel('concentration',fontsize=16)
-      plt.plot(x,y,"--bo",linewidth=1.0)
+      plt.plot(x,y,"--bo",linewidth=1.0,color=color[j%2])
       # sauvegarde de l'image
-      plt.savefig("img/"+repr(10000+j)+".png")
-      plt.close()
+      if j%2==0:
+        plt.savefig("img/"+repr(10000+j)+".png")
+        plt.close()
 
 print("generation images fini")
 

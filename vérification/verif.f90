@@ -5,12 +5,12 @@ program verif
     type (phys):: data_phys
     real,dimension(:,:),allocatable:: data
     real,dimension(:),allocatable:: Con_tfix,L_m
-    integer:: i,j,k,l
+    integer:: i,j,k,l,t_test
     real:: t
-
-    call read_data("/home/gregoire/Documents/PROG_IMP/BE/data_BE.txt",data_phys,data_num)
+    t_test=1
+    call read_data("/home/gregoire/Documents/PROG_IMP/BE_full/data_BE.txt",data_phys,data_num)
     allocate(data(data_num%N_t+1,data_num%N_x))
-    call read_file("/home/gregoire/Documents/PROG_IMP/BE/resultats.txt",data,data_num%N_x,data_num%N_t)
+    call read_file("/home/gregoire/Documents/PROG_IMP/BE_full/resultats.txt",data,data_num%N_x,data_num%N_t)
     
     open(20,file="lecture.txt")
     do i=1,data_num%N_t+1
@@ -18,7 +18,7 @@ program verif
     end do
     close(20)
 
-    t=30*(data_phys%tf/data_num%N_t)
+    t=t_test*(data_phys%tf/data_num%N_t)
 
     allocate(L_m(data_num%N_x))
     call L_maill(data_num%N_x,data_phys%L,L_m)
@@ -27,7 +27,7 @@ program verif
     
     open(21,file="res.csv")
     do k=1,data_num%N_x
-        write(21,*) L_m(k), data(30,k)
+        write(21,*) L_m(k), data(t_test,k)
     end do
     do l=1,data_num%N_x
         write(21,*) L_m(l), Con_tfix(l)
@@ -35,5 +35,5 @@ program verif
     close(21)
     deallocate(L_m)
     deallocate(data)
-
+    deallocate(Con_tfix)
 end program verif

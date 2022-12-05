@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # CHAMP A MODIFIER EN FONCTION DU NOMBRE D'ELEMENTS DES TABLEAUX INDIVIDUELS
-nb_elements = 100
+nb_elements = 9
 L=["red","green","blue","yellow","black","white","orange","purple","brown","grey"]
 x = np.zeros(nb_elements)
 y = np.zeros(nb_elements)
@@ -23,8 +23,8 @@ with open("res.csv", "r") as my_file:
         i=i+1
 
 plt.title("Evolution")
-plt.xlim(0.,100)
-plt.ylim(0.,1.)
+plt.xlim(0.,1000)
+plt.ylim(0.,10.)
 plt.xlabel('x (m)',fontsize=16)
 plt.ylabel('concentration',fontsize=16)
 plt.savefig("res.png")
